@@ -2,9 +2,16 @@
 const products = [
     { id: 1, name: 'Producto 1', price: 10 },
     { id: 2, name: 'Producto 2', price: 20 },
-    { id: 3, name: 'Producto 3', price: 30 },
-	{ id: 4, name: '<script>alert("¡Vulnerabilidad de XSS!")</script>', price: 0 }
+    { id: 3, name: 'Producto 3', price: 30 }
 ];
+
+// Función para autenticar usuarios (vulnerable a Inyección de SQL)
+function authenticateUser(username, password) {
+    const query = `SELECT * FROM users WHERE username='${username}' AND password='${password}'`;
+    // Realizar la consulta a la base de datos y verificar las credenciales
+    // Si las credenciales son válidas, permitir el inicio de sesión
+    // De lo contrario, denegar el inicio de sesión
+}
 
 // Función para mostrar los productos disponibles
 function displayProducts() {
